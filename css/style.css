@@ -1,0 +1,162 @@
+/*Animating the logo with Keyframes*/
+@keyframes logoAn {
+    0% {width: 25px;
+        opacity: 0;
+    }
+    100% {width: 475px;
+        opacity: 1;
+    }
+}
+
+ /*Applying the animation to the logo*/
+#logo {
+    width: 25px;
+    opacity: 0;
+    animation: logoAn 5s ease forwards;
+}
+/* update font and background color */
+body{
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* update menu bar using flex */
+header{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Match nav_links to example */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* make link color same even after clicked */
+.nav_links a:visited{
+    color: #50C7C7;
+}
+
+/* update card styling FIX CARD CURVE*/
+.card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/*ensures all part of the card curves, not just the blue*/
+.card{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* update card class styling using flex*/
+/*double check grow/shrink*/
+.card{
+    display: flex;
+    flex-basis: 450px;
+    flex-direction: column;
+    /* flex-grow: 1;
+    flex-shrink: 0; */
+}
+
+/* edit css for pricing class */
+.pricing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* style gallery images */
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* use flex on gallery class */
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* media query for greater than 900px */
+@media screen and (min-width: 900px){
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    /* fix layout of nav links to horz */
+.nav_links{
+    flex-direction: row;
+}
+/* match card and pricing to example */
+.pricing{
+    flex-basis: 275px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.card{
+    flex-basis: 275px;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+}
+/*fix first header*/
+body > header{
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Positioned at the top of the screen */
+    width: 100%; /* Occupy full screen width*/
+    z-index: 1000; /* Make sure it stays on top of other elements */
+}
+body{
+    padding-top: 100px; /* Add some top padding to the body so the fixed menu doesnt overlap content */
+}
+}
+
+/* no animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+@media print {
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pricing{
+        align-items: flex-end;
+    }
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+    .gallery{
+        display: none;
+    }
+    .card ul li:nth-child(2)::after{
+        content: "\1F44D";
+        margin-right: 5px; 
+        font-size: 20px; 
+      }
+
+}
